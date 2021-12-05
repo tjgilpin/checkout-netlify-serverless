@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <button id="button">Yeshh</button>
   <script>
     // Function using fetch to POST to our API endpoint
     function createTodo(data) {
@@ -24,13 +25,23 @@
       completed: false,
     }
 
+    //
+
+    document.getElementById('button').addEventListener('click', doDis);
+
     // create it!
-    createTodo(myTodo).then((response) => {
+
+    function doDis() {
+      console.log('clickety clack');
+      createTodo(myTodo).then((response) => {
       console.log('API response', response)
-      // set app state
-    }).catch((error) => {
-      console.log('API error', error)
-    })    
+        // set app state
+      }).catch((error) => {
+        console.log('API error', error)
+      })    
+    }
+
+
   </script>
 </body>
 </html>
