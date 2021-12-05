@@ -31,7 +31,7 @@ exports.handler = async (event) => {
     payment_method_types: ['card'],
     billing_address_collection: 'auto',
     shipping_address_collection: {
-      allowed_countries: ['US', 'CA'],
+      allowed_countries: ['DE', 'GB'],
     },
 
     /*
@@ -45,7 +45,7 @@ exports.handler = async (event) => {
     line_items: [
       {
         price_data: {
-          currency: 'usd',
+          currency: 'eur',
           unit_amount: product.amount,
           product_data: {
             name: product.name,

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Function using fetch to POST to our API endpoint
+    function createTodo(data) {
+      return fetch('/.netlify/functions/todos-create', {
+        body: JSON.stringify(data),
+        method: 'POST'
+      }).then(response => {
+        return response.json()
+      })
+    }
+
+    // Todo data
+    const myTodo = {
+      title: 'My todo title',
+      completed: false,
+    }
+
+    // create it!
+    createTodo(myTodo).then((response) => {
+      console.log('API response', response)
+      // set app state
+    }).catch((error) => {
+      console.log('API error', error)
+    })    
+  </script>
+</body>
+</html>
