@@ -10,7 +10,7 @@
   <script>
     // Function using fetch to POST to our API endpoint
     function createTodo(data) {
-      return fetch('/.netlify/functions/todos-create', {
+      return fetch('/functions/todos-create', {
         body: JSON.stringify(data),
         method: 'POST'
       }).then(response => {
