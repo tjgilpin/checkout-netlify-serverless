@@ -8,3 +8,6 @@ yarn.lock
 
 # Local Netlify folder
 .netlify
+
+_site/
+.DS_Store
