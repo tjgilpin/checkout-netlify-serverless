@@ -40,7 +40,7 @@ exports.handler = async (event) => {
      * other environment variables Netlify exposes:
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
-    success_url: `${process.env.URL}/success.html`,
+    success_url: `${process.env.URL}/success/`,
     cancel_url: process.env.URL,
     line_items: [
       {
