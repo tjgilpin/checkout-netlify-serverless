@@ -1,11 +1,11 @@
 [build]
-  command = "npm run functions"
-  publish = "public"
-  functions = "functions"
+  command = "eleventy"
+  publish = "_site"
+  functions = "_site/functions"  
 
 [dev]
-  publish = "public"
-  functions = "functions"
+  publish = "_site"
+  functions = "_site/functions"
 
 [template.environment]
   STRIPE_PUBLISHABLE_KEY = "Add your Stripe publishable key here: pk_test_xxx"
