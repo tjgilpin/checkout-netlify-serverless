@@ -1,0 +1,335 @@
+:root {
+	--blue: blue;
+	--green: white;
+  --blue: #03a4e5;
+  --lightblue: #03d9e9;
+  --green: #91c420;
+  --lightgreen: #d9e22d;
+  --red: #fe3b2c;    
+	--white: #fff;
+  --text: #444;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+}
+
+body {
+	display: grid;
+	height: 100vh;
+	grid-template-rows: auto 1fr auto;
+	background-color: var(--white);
+}
+
+body:not(.page-glossary):not(.page-home) main {
+	max-width: 37.5em;
+}
+
+body.page-glossary main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-gap: 1em;
+}
+
+body.page-glossary h1 {
+  grid-column: 1/-1;
+}
+
+body.page-home main {
+  display: grid;
+  grid-gap: 1em;
+}
+
+@media(min-width: 768px) {
+  body.page-home main { 
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(min-width: 1024px) {
+  body.page-home main { 
+    grid-template-columns: repeat(6, 1fr);
+  }
+  body.page-home section {
+    grid-column: span 2;
+  }
+  body.page-home section:nth-child(n+1):nth-child(-n+3) {
+    grid-column: span 3;
+  }
+}
+
+body.page-home > h1, body.page-home > h2, #unsere-berater {
+  grid-column: 1/-1;
+}
+
+.content-green {
+  
+}
+
+body.page-home main img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 0.65em;
+}
+
+body.page-home main h3 + p::after {
+  content: url('static/img/logo-shapes.svg');
+  position: absolute;
+  top: -10px;
+  left: -5px;
+}
+
+
+body.page-home main section h3 + p {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+  position: relative;
+}
+
+h1, h2 {
+  color: var(--blue);
+}
+
+h3 {
+  color: var(--green);
+}
+
+p,
+pre,
+code {
+	line-height: 1.5;
+}
+
+a[href],
+a[href]:visited {
+	color: var(--blue);
+}
+
+a[href]:not(:hover) {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+header,
+main,
+footer {
+	padding: 1em;
+}
+
+main {
+	padding-bottom: 2em;
+}
+
+main :first-child,
+main > article :first-child {
+	margin-top: 0;
+}
+
+pre {
+	font-size: 14px;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	-moz-tab-size: 2;
+	tab-size: 2;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	padding: 1em;
+	margin: .5em 0;
+}
+
+/* Header Logo (style as h2) */
+header > em {
+	display: block;
+	font-size: 2em;
+	margin: .67em 0;
+	font-weight: bold;
+	font-style: normal;
+}
+
+/* Header Nav */
+header nav ul {
+	padding: 0;
+	list-style: none;
+}
+
+header nav ul :first-child {
+	margin-left: 0;
+}
+
+header nav li {
+	display: inline-block;
+	margin: 0 .25em;
+}
+
+header nav li a {
+	padding: .25em .5em;
+	border-radius: .25em;
+}
+
+header nav li a[href]:not(:hover) {
+	text-decoration: none;
+}
+
+header nav li a[data-current="current item"] {
+	background-color: white;
+}
+
+/* Posts List */
+article {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid var(--green);
+}
+
+main > section > article > * {
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+
+/* Post Tags */
+a[rel="tag"],
+a[rel="tag"]:visited {
+	display: inline-block;
+  vertical-align: text-top;
+  text-transform: uppercase;
+	letter-spacing: .1em;
+  font-size: .625em;
+  padding: 0 .5em;
+	line-height: 2em;
+	height: 2em;
+  border: 1px solid var(--green);
+	background-color: var(--green);
+	color: var(--blue);
+  border-radius: .25em;
+  text-decoration: none;
+	margin: 0 .5em .5em 0;
+}
+
+a[rel="tag"]:hover {
+	border: 1px solid var(--blue);
+	background-color: var(--blue);
+	color: var(--green);
+}
+
+a[rel="tag"]:last-child {
+	margin-right: 0;
+}
+
+/* Contact Form */
+form {
+  display: grid;
+	padding: 2em 0;
+}
+
+/* form label {
+  display: none;
+} */
+
+input:not([type=radio]),
+textarea,
+select,
+button {
+  width: 100%;
+  padding: 0.85em 0.5em;
+  margin-bottom: 1em;
+	font-size: 1rem;
+	font-family: "Avenir", "Avenir Next", sans-serif;
+  appearance: none;
+  border: 1px solid black;
+  background: none;
+}
+
+input,
+textarea {
+	border: 1px solid black;
+}
+
+select {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat, repeat;
+  /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+  background-position: right .7em top 50%, 0 0;
+  /* icon size, then gradient */
+  background-size: .65em auto, 100%;
+}
+
+button {
+	border: 1px solid var(--blue);
+	background-color: var(--lightblue);
+	color: var(--text);
+	cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+button:hover {
+	background-color: var(--blue);
+  color: var(--white);
+}
+
+@media screen and (min-width:768px) {
+	:root {
+		font-size: 1.1rem;
+	}
+}
+
+.button {
+  background: var(--blue);
+  color: var(--white) !important;
+  padding: 0.35em 0.65em;
+  border-radius: 0.25em;
+  white-space: nowrap;
+}
+
+ol li {
+  counter-increment: list;
+  position: relative;
+}
+ol li:before {
+  content: counter(list) ".";
+  color: var(--blue);
+  font-size: 2.25em;
+  position: absolute;
+  left: -1.25em;
+  top: 50%;
+  transform: translateY(-50%);
+  /* top: 1em; */
+  /* background: var(--blue); */
+  /* border-radius: 50%; */
+  /* width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+ol {
+  list-style: none;
+  counter-reset: list;
+  padding-left: 3em;
+}
+
+label {
+  color: var(--green);
+  font-weight: 700;
+  line-height: 2.5;
+}

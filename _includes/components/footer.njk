@@ -1,0 +1,13 @@
+<footer>
+  <small>
+    Fragen	Sicherheit	<a href="/berater-werden/">Berater werden</a>	AGB	Datenschutz	Impressum	
+  </small>
+</footer>
+<script>
+    var element = document.getElementById('uuid');
+    if (typeof(element) != 'undefined' && element != null) {
+      const uuid = uuidv4();
+      console.log(uuid);
+      document.getElementById('uuid').value = uuid;
+    }
+</script>

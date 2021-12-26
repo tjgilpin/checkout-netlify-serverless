@@ -1,0 +1,26 @@
+[
+  {
+    "sku": "DEMO001",
+    "name": "Beratung Grundstufe",
+    "description": "Prüfen Sie, ob eine Beratung das Richtige für Sie ist",
+    "image": "https://dop-holding.netlify.app/logo.gif",
+    "amount": 499,
+    "currency": "EUR"
+  },
+  {
+    "sku": "DEMO002",
+    "name": "Beratung Mittelstufe",
+    "description": "Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden",
+    "image": "https://dop-holding.netlify.app/logo.gif",
+    "amount": 999,
+    "currency": "EUR"
+  },
+  {
+    "sku": "DEMO003",
+    "name": "Beratung Advanced Level",
+    "description": "Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden und das Persönlichkeitsprofil",
+    "image": "https://dop-holding.netlify.app/logo.gif",
+    "amount": 1499,
+    "currency": "EUR"
+  }  
+]
