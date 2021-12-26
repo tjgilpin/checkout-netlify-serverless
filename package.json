@@ -14,5 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "stripe": "^8.195.0"
   }
 }
