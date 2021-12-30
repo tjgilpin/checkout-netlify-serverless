@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require('uuid');
+
 /*
  * This function creates a Stripe Checkout session and returns the session ID
  * for use with Stripe.js (specifically the redirectToCheckout method).
@@ -25,6 +27,8 @@ exports.handler = async (event) => {
 
   // ensure that the quantity is within the allowed range
   const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
+
+  const uniqueId = uuidv4();
 
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
@@ -66,6 +70,7 @@ exports.handler = async (event) => {
           sku: product.sku,
           name: product.name,
           quantity: validatedQuantity,
+          userId: uniqueId
         },
       ]),
     },

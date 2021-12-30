@@ -27,11 +27,12 @@ exports.handler = async (event) => {
   const customer = await stripe.customers.retrieve(session.customer);
 
   console.log(customer);
+  console.log(session);
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: customer.name,
+      message: session.metadata.items,
     }),
   };
 }
