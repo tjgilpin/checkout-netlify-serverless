@@ -35,7 +35,7 @@ exports.handler = async (event) => {
     payment_method_types: ['card'],
     billing_address_collection: 'auto',
     shipping_address_collection: {
-      allowed_countries: ['US', 'CA'],
+      allowed_countries: ['DE', 'GB'],
     },
 
     /*
@@ -44,12 +44,12 @@ exports.handler = async (event) => {
      * other environment variables Netlify exposes:
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
-    success_url: `https://11ty--dop-stripe-functions.netlify.app/.netlify/functions/success?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${process.env.URL}/.netlify/functions/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: process.env.URL,
     line_items: [
       {
         price_data: {
-          currency: 'usd',
+          currency: 'eur',
           unit_amount: product.amount,
           product_data: {
             name: product.name,
