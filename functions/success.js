@@ -25,14 +25,19 @@ exports.handler = async (event) => {
 
   const session = await stripe.checkout.sessions.retrieve(sessionId);
   const customer = await stripe.customers.retrieve(session.customer);
+  
+  const items = session.metadata.items;
+  let itemObj = JSON.parse(items);
+  itemObj = itemObj[0]
 
   console.log(customer);
   console.log(session);
+  console.log(itemObj.userId);
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: session.metadata.items,
+      message: `Sucessful transaction, please write down the following code ${itemObj.userId}`
     }),
   };
 }
