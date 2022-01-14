@@ -18,76 +18,76 @@
         <a href="https://stripe.com/docs/testing#cards">test card numbers</a>.
       </p>
       <section class="form">
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" action="./products/" method="POST" data-netlify="true">
           <h2>How would it be if you were no longer alone with your worries from now on?</h2>
           <p>
             <label>
-              <input type="radio" name="worries" value="somewhat-relieving" />
+              <input type="radio" name="worries" value="somewhat-relieving" required />
               Somewhat relieving
             </label>   
             <label>
-              <input type="radio" name="worries" value="relieving" />
+              <input type="radio" name="worries" value="relieving" required />
               Relieving
             </label>   
             <label>
-              <input type="radio" name="worries" value="very-relieving" />
+              <input type="radio" name="worries" value="very-relieving" required />
               Very relieving
             </label>   
           </p>
           <h2>What would be the first thing you would notice if the problem was no longer there? </h2>
           <p>
-            <label><input type="text" name="no-lomger-there" /></label>
+            <label><input type="text" name="no-lomger-there" required /></label>
           </p>
           <h2>How important is it to you, that as little data about you is collected online?</h2>
           <p>
             <label>
-              <input type="radio" name="data" value="unimportant" />
+              <input type="radio" name="data" value="unimportant" required />
               Unimportant
             </label>   
             <label>
-              <input type="radio" name="data" value="important" />
+              <input type="radio" name="data" value="important" required />
               Important
             </label>  
             <label>
-              <input type="radio" name="data" value="very-important" />
+              <input type="radio" name="data" value="very-important" required />
               Very Important
             </label>  
           </p>
           <h2>Are there shards in your life that you keep hurting yourself with? </h2>
           <p>
             <label>
-              <input type="radio" name="shards" value="disagree" />
+              <input type="radio" name="shards" value="disagree" required />
               Disagree
             </label>   
             <label>
-              <input type="radio" name="shards" value="agree" />
+              <input type="radio" name="shards" value="agree" required />
               Agree
             </label>   
             <label>
-              <input type="radio" name="shards" value="strongly-agree" />
+              <input type="radio" name="shards" value="strongly-agree" required />
               Strongly agree
             </label>  
           </p>          
           <h2>What do you feel is the weakest point in your life?</h2>
           <p>
             <label>
-              <input type="radio" name="weakest-point" value="job" />
+              <input type="radio" name="weakest-point" value="job" required />
               Job
             </label>   
             <label>
-              <input type="radio" name="weakest-point" value="partner" />
+              <input type="radio" name="weakest-point" value="partner" required />
               Partner
             </label>   
             <label>
-              <input type="radio" name="weakest-point" value="wellbeing" />
+              <input type="radio" name="weakest-point" value="wellbeing" required />
               Wellbeing
             </label>  
             <label>
-              <input type="radio" name="weakest-point" value="family" />
+              <input type="radio" name="weakest-point" value="family" required />
               Family
             </label>  
             <label>
-              <input type="radio" name="weakest-point" value="other"  id="weakest-point-other" />
+              <input type="radio" name="weakest-point" value="other"  id="weakest-point-other" required />
               Other (please specify)
             </label>  
           </p>          
@@ -96,7 +96,7 @@
           </p>
           <p>
             <label>
-              <input type="checkbox" name="submit-answers" id="submit-answers">
+              <input type="checkbox" name="submit-answers" id="submit-answers" required />
               I want my answers to be submitted to my psychologist
             </label>
           </p>
