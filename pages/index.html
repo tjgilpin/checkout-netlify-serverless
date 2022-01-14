@@ -92,7 +92,7 @@
             </label>  
           </p>          
           <p class="weakest-point-describe">
-            <label><input type="text" name="weakest-point-describe" /></label>
+            <label><input type="text" name="weakest-point-describe" class="weakest-point-describe-text" /></label>
           </p>
           <p>
             <label>
@@ -114,13 +114,16 @@
       function checkRadio() {
         const radios = document.querySelectorAll('input[name="weakest-point"]');
         const additional = document.querySelector('.weakest-point-describe');
+        const additionalText = document.querySelector('.weakest-point-describe-text');
 
         for(radio in radios) {
           radios[radio].onclick = function() {
             if (this.value == 'other') {
               additional.style.display = 'block';
+              additionalText.required = true;
             } else {
               additional.style.display = 'none';
+              additionalText.required = false;
             }
           }
         }
