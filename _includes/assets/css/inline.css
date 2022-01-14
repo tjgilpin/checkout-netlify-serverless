@@ -1,5 +1,4 @@
 :root {
-	--blue: blue;
 	--green: white;
   --blue: #03a4e5;
   --lightblue: #03d9e9;
@@ -30,7 +29,8 @@ body {
 }
 
 body:not(.page-glossary):not(.page-home) main {
-	max-width: 37.5em;
+	max-width: 70ch;
+  margin: 0 auto;
 }
 
 body.page-glossary main {
@@ -97,12 +97,17 @@ body.page-home main section h3 + p {
   position: relative;
 }
 
-h1, h2 {
+h1 {
   color: var(--blue);
 }
 
-h3 {
+h2, h3 {
   color: var(--green);
+}
+
+h2 {
+  line-height: 1.375;
+  margin-bottom: 0.25em;
 }
 
 p,
@@ -111,14 +116,17 @@ code {
 	line-height: 1.5;
 }
 
-a[href],
+a[href] {
+  color: var(--blue);
+  text-decoration: underline;
+}
 a[href]:visited {
-	color: var(--blue);
+	color: var(--lightblue);
 }
 
-a[href]:not(:hover) {
+/* a[href]:not(:hover) {
 	text-decoration: none;
-}
+} */
 
 img {
 	max-width: 100%;
@@ -222,7 +230,7 @@ a[rel="tag"]:visited {
 	background-color: var(--green);
 	color: var(--blue);
   border-radius: .25em;
-  text-decoration: none;
+  /* text-decoration: none; */
 	margin: 0 .5em .5em 0;
 }
 
@@ -246,7 +254,7 @@ form {
   display: none;
 } */
 
-input:not([type=radio]),
+input[type="text"],
 textarea,
 select,
 button {
@@ -258,11 +266,6 @@ button {
   appearance: none;
   border: 1px solid black;
   background: none;
-}
-
-input,
-textarea {
-	border: 1px solid black;
 }
 
 select {
@@ -282,9 +285,14 @@ button {
   transition: all 0.2s ease-out;
 }
 
-button:hover {
+button:hover:enabled {
 	background-color: var(--blue);
   color: var(--white);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media screen and (min-width:768px) {
@@ -329,7 +337,12 @@ ol {
 }
 
 label {
-  color: var(--green);
-  font-weight: 700;
-  line-height: 2.5;
+  color: var(--text);
+  font-weight: 400;
+  display: block;
+  padding: 0.375em 0;
+}
+
+.weakest-point-describe {
+  display: none;
 }

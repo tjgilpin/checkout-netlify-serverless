@@ -8,141 +8,141 @@
   </head>
   <body>
     <header>
-      <a href="/" rel="home">Serverless Workflow for Stripe Checkout</a>
     </header>
 
     <main>
-      <h1>Buy Our Products!</h1>
+      <img src="../_includes/assets/img/header_logo.gif" alt="Die Online Psychologen" />
+      <h1>Online Beratung</h1>
       <p>
         This demo is in test mode. That means you can check out using any of the
         <a href="https://stripe.com/docs/testing#cards">test card numbers</a>.
       </p>
-      <section class="products"></section>
+      <section class="form">
+        <form name="contact" method="POST" data-netlify="true">
+          <h2>How would it be if you were no longer alone with your worries from now on?</h2>
+          <p>
+            <label>
+              <input type="radio" name="worries" value="somewhat-relieving" />
+              Somewhat relieving
+            </label>   
+            <label>
+              <input type="radio" name="worries" value="relieving" />
+              Relieving
+            </label>   
+            <label>
+              <input type="radio" name="worries" value="very-relieving" />
+              Very relieving
+            </label>   
+          </p>
+          <h2>What would be the first thing you would notice if the problem was no longer there? </h2>
+          <p>
+            <label><input type="text" name="no-lomger-there" /></label>
+          </p>
+          <h2>How important is it to you, that as little data about you is collected online?</h2>
+          <p>
+            <label>
+              <input type="radio" name="data" value="unimportant" />
+              Unimportant
+            </label>   
+            <label>
+              <input type="radio" name="data" value="important" />
+              Important
+            </label>  
+            <label>
+              <input type="radio" name="data" value="very-important" />
+              Very Important
+            </label>  
+          </p>
+          <h2>Are there shards in your life that you keep hurting yourself with? </h2>
+          <p>
+            <label>
+              <input type="radio" name="shards" value="disagree" />
+              Disagree
+            </label>   
+            <label>
+              <input type="radio" name="shards" value="agree" />
+              Agree
+            </label>   
+            <label>
+              <input type="radio" name="shards" value="strongly-agree" />
+              Strongly agree
+            </label>  
+          </p>          
+          <h2>What do you feel is the weakest point in your life?</h2>
+          <p>
+            <label>
+              <input type="radio" name="weakest-point" value="job" />
+              Job
+            </label>   
+            <label>
+              <input type="radio" name="weakest-point" value="partner" />
+              Partner
+            </label>   
+            <label>
+              <input type="radio" name="weakest-point" value="wellbeing" />
+              Wellbeing
+            </label>  
+            <label>
+              <input type="radio" name="weakest-point" value="family" />
+              Family
+            </label>  
+            <label>
+              <input type="radio" name="weakest-point" value="other"  id="weakest-point-other" />
+              Other (please specify)
+            </label>  
+          </p>          
+          <p class="weakest-point-describe">
+            <label><input type="text" name="weakest-point-describe" /></label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="submit-answers" id="submit-answers">
+              I want my answers to be submitted to my psychologist
+            </label>
+          </p>
+          <p>
+            <button type="submit" disabled="disabled" disabled>Send</button>
+          </p>
+        </form>
+      </section>
     </main>
 
     <footer>
-      <p>
-        Based on an
-        <a href="https://www.learnwithjason.dev/sell-products-on-the-jamstack">
-          episode of <em>Learn With Jason</em>
-        </a>
-        ·
-        <a href="https://jason.af/egghead/stripe-products">
-          watch the video course
-        </a>
-        ·
-        <a
-          href="https://www.netlify.com/blog/2020/04/13/learn-how-to-accept-money-on-jamstack-sites-in-38-minutes/?utm_source=demo&utm_medium=stripe-checkout-jamstack-jl&utm_campaign=devex"
-          >read the tutorial</a
-        >
-        ·
-        <a href="https://github.com/stripe-samples/checkout-netlify-serverless">
-          source code
-        </a>
-      </p>
     </footer>
 
-    <template id="product">
-      <div class="product">
-        <img src="" alt="" />
-        <h2>name</h2>
-        <p class="description">description</p>
-        <p class="price">price</p>
-        <form action="/.netlify/functions/create-checkout" method="post">
-          <label for="quantity">Quantity</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value="1"
-            min="1"
-            max="10"
-          />
-          <input type="hidden" name="sku" value="" />
-          <button type="submit">Buy Now</button>
-        </form>
-      </div>
-    </template>
-
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
-      function format(amount, currency) {
-        return new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency,
-        }).format((amount / 100).toFixed(2));
-      }
+      function checkRadio() {
+        const radios = document.querySelectorAll('input[name="weakest-point"]');
+        const additional = document.querySelector('.weakest-point-describe');
 
-      async function handleSubmit(event) {
-        event.preventDefault();
-        document
-          .querySelectorAll('button')
-          .forEach((button) => (button.disabled = true));
-
-        const form = new FormData(event.target);
-        const data = {
-          sku: form.get('sku'),
-          quantity: Number(form.get('quantity')),
-        };
-
-        const response = await fetch('/.netlify/functions/create-checkout', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        }).then((res) => res.json());
-
-        const stripe = Stripe(response.publishableKey);
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: response.sessionId,
-        });
-
-        if (error) {
-          document
-            .querySelectorAll('button')
-            .forEach((button) => (button.disabled = false));
-          console.error(error);
+        for(radio in radios) {
+          radios[radio].onclick = function() {
+            if (this.value == 'other') {
+              additional.style.display = 'block';
+            } else {
+              additional.style.display = 'none';
+            }
+          }
         }
       }
 
-      async function loadProducts() {
-        if (!'content' in document.createElement('template')) {
-          console.error('Your browser doesn’t support HTML template elements.');
-          return;
-        }
+      checkRadio();
 
-        const data = await fetch('/.netlify/functions/get-products')
-          .then((res) => res.json())
-          .catch((err) => console.error(err));
-
-        const products = document.querySelector('.products');
-        const template = document.querySelector('#product');
-
-        data.forEach((product) => {
-          const container = template.content.cloneNode(true);
-
-          container.querySelector('h2').innerText = product.name;
-          container.querySelector('.description').innerText =
-            product.description;
-          container.querySelector('.price').innerText = format(
-            product.amount,
-            product.currency
-          );
-          container.querySelector('[name=sku]').value = product.sku;
-
-          const img = container.querySelector('img');
-          img.src = product.image;
-          img.alt = product.name;
-
-          const form = container.querySelector('form');
-          form.addEventListener('submit', handleSubmit);
-
-          products.appendChild(container);
+      function submitBtn() {
+        const submit = document.getElementById('submit-answers');
+        const button = document.querySelector('button[type="submit"]');
+        
+        submit.addEventListener('change', function() {
+          if (this.checked) {
+            button.disabled = false;
+          } else {
+            button.disabled = true;
+          }
         });
-      }
+      } 
 
-      loadProducts();
+      submitBtn();
+
     </script>
   </body>
 </html>
