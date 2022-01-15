@@ -346,3 +346,7 @@ label {
 .weakest-point-describe {
   display: none;
 }
+
+#quantity {
+  display: hidden;
+}
