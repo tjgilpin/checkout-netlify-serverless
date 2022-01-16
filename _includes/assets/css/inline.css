@@ -7,6 +7,9 @@
   --red: #fe3b2c;    
 	--white: #fff;
   --text: #444;
+  --lightgray: #bbb;
+  --lightergray: #eee;
+
 }
 
 *, *:before, *:after {
@@ -33,6 +36,13 @@ body:not(.page-glossary):not(.page-home) main {
   margin: 0 auto;
 }
 
+/* @media(min-width: 85ch) {
+  body.products main {
+    max-width: unset;
+  } 
+} */
+
+
 body.page-glossary main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
@@ -47,6 +57,118 @@ body.page-home main {
   display: grid;
   grid-gap: 1em;
 }
+
+body.products form {
+  padding: 0;
+}
+
+body.products main ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.price {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin: 0.5em 0;
+}
+
+body.products main {
+  display: grid;
+}
+
+
+div.product {
+  order: 1;
+}
+
+div.product + div.product {
+  order: 3;
+}
+
+div.product + div.product + div.product {
+  order: 5;
+}
+
+.products-one-details {
+  order: 2;    
+}
+
+.products-two-details {
+  order: 4;    
+}
+
+.products-three-details {
+  order: 6;    
+}
+
+.yes, .no {
+  position: relative;
+}
+
+.yes span {
+  color: var(--green);
+  position: absolute;
+  left: -15px;
+  top: 7px;
+  font-size: 0.9em;
+}
+
+.no {
+  color: var(--lightgray);
+}
+
+.no span {
+  color: var(--lightgray);
+  font-size: 1.375em;
+  font-weight: 700;
+  position: absolute;
+  left: -13px;
+  top: 1px;
+}
+
+.product-details li {
+  border-bottom: 1px solid var(--lightergray);
+  padding: 0.5em 0;
+}
+
+.product-details li:last-child {
+  border-bottom: none !important;
+}
+
+
+@media(min-width: 85ch) {
+  body.products {
+    max-width: unset;
+  }
+  body.products main {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    grid-template-rows: auto 1fr;
+    max-width: 100ch !important;   
+  }
+
+  div.product {
+    display: grid;
+    align-items: start;
+    grid-template-rows: auto 1fr auto auto;
+    order: unset !important;
+  }
+/* 
+  .description {
+    max-height: 120px;
+  } */
+
+  body.products h1 {
+    grid-column: span 3;  
+  }
+}
+
+/* body.products :is(main, header, footer)  {
+  grid-column: span 3;
+  width: 100%;
+  padding: 0;
+} */
 
 @media(min-width: 768px) {
   body.page-home main { 
@@ -136,7 +258,7 @@ img {
 header,
 main,
 footer {
-	padding: 1em;
+	padding: 2em;
 }
 
 main {

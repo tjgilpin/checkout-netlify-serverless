@@ -6,12 +6,36 @@
     <title>Stripe Checkout Jamstack Example</title>
     <link rel="stylesheet" href="/_includes/assets/css/inline.css" />
   </head>
-  <body>
+  <body class="products">
     <header>
+      <h1>
+        Online Beratung
+      </h1>
     </header>
 
     <main>
-      <section class="products"></section>
+      <!-- <section class="products"></section> -->
+      <div class="products-one-details product-details">
+        <ul>
+          <li class="yes"><span>✔</span> Prüfen Sie, ob eine Beratung das Richtige für Sie ist</li>
+          <li class="yes"><span>✔</span> Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden</li>
+          <li class="yes"><span>✔</span> Erhalten Sie ein Persönlichkeitsprofil</li>
+        </ul>
+      </div>
+      <div class="products-two-details product-details">
+        <ul>
+          <li class="yes"><span>✔</span> Prüfen Sie, ob eine Beratung das Richtige für Sie ist</li>
+          <li class="yes"><span>✔</span> Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden</li>
+          <li class="no"><span>⨯</span> Erhalten Sie ein Persönlichkeitsprofil</li>
+        </ul>
+      </div>
+      <div class="products-three-details product-details">
+        <ul>
+          <li class="yes"><span>✔</span> Prüfen Sie, ob eine Beratung das Richtige für Sie ist</li>
+          <li class="no"><span>⨯</span> Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden</li>
+          <li class="no"><span>⨯</span> Erhalten Sie ein Persönlichkeitsprofil</li>
+        </ul>
+      </div>
     </main>
 
     <footer>
@@ -19,7 +43,6 @@
 
     <template id="product">
       <div class="product">
-        <img src="" alt="" />
         <h2>name</h2>
         <p class="description">description</p>
         <p class="price">price</p>
@@ -82,7 +105,7 @@
           .then((res) => res.json())
           .catch((err) => console.error(err));
 
-        const products = document.querySelector('.products');
+        const products = document.querySelector('main');
         const template = document.querySelector('#product');
 
         data.forEach((product) => {
@@ -100,7 +123,7 @@
           const form = container.querySelector('form');
           form.addEventListener('submit', handleSubmit);
 
-          products.appendChild(container);
+          products.insertBefore(container, products.firstChild);
         });
       }
 

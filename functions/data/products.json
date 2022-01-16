@@ -1,21 +1,21 @@
 [
   {
     "sku": "DEMO001",
-    "name": "Beratung Grundstufe",
+    "name": "Beratungscheck",
     "description": "Prüfen Sie, ob eine Beratung das Richtige für Sie ist",
     "amount": 499,
     "currency": "EUR"
   },
   {
     "sku": "DEMO002",
-    "name": "Beratung Mittelstufe",
+    "name": "Beratung",
     "description": "Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden",
     "amount": 999,
     "currency": "EUR"
   },
   {
     "sku": "DEMO003",
-    "name": "Beratung Advanced Level",
+    "name": "Beratung plus",
     "description": "Der Berater beantwortet Ihre Anfrage innerhalb von 24 Stunden und das Persönlichkeitsprofil",
     "amount": 1499,
     "currency": "EUR"
